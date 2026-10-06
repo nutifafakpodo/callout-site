@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Mono carries every price and band in the product UI too — it reads as
+     "this is a figure you can hold us to", which is the whole pitch. */
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Ground and signal are lifted from the product apps so the handoff from
+     site to app does not feel like two different companies. */
+  --color-ink-950: hsl(240 12% 4%);
+  --color-ink-900: hsl(240 10% 7%);
+  --color-ink-850: hsl(240 9% 10%);
+  --color-ink-800: hsl(240 8% 14%);
+  --color-ink-700: hsl(240 7% 20%);
+  --color-ink-600: hsl(240 6% 32%);
+  --color-ink-400: hsl(200 8% 58%);
+  --color-ink-200: hsl(180 12% 82%);
+  --color-ink-100: hsl(180 20% 92%);
+
+  /* Signal cyan: the product's primary. */
+  --color-signal-600: hsl(167 100% 30%);
+  --color-signal-500: hsl(167 100% 38%);
+  --color-signal-400: hsl(167 100% 45%);
+  --color-signal-300: hsl(167 90% 60%);
+  --color-signal-100: hsl(167 70% 88%);
+
+  /* Flag magenta: used only where the product flags something out of band. */
+  --color-flag-500: hsl(320 95% 55%);
+  --color-flag-400: hsl(320 90% 65%);
+
+  --color-background: hsl(240 12% 4%);
+  --color-foreground: hsl(180 20% 92%);
+  --color-muted-foreground: hsl(200 8% 58%);
+  --color-border: hsl(240 8% 16%);
+  --color-card: hsl(240 10% 7%);
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  --shadow-glow: 0 0 0 1px hsl(167 100% 45% / 0.25), 0 20px 60px -24px hsl(167 100% 45% / 0.35);
+  --shadow-card: 0 1px 2px hsl(240 12% 2% / 0.6), 0 24px 56px -28px hsl(240 12% 2% / 0.9);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    /* Faint grid, the way a quoting sheet is ruled. Fixed so it reads as the
+       page's substrate rather than something that scrolls past. */
+    background-image:
+      linear-gradient(to right, hsl(167 100% 45% / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(167 100% 45% / 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: hsl(167 100% 45% / 0.3);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal-400);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    /* Belt and braces: components gate their own motion via useReducedMotion,
+       but any CSS animation that slips through is neutralised here too. */
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility text-pretty {
+  text-wrap: pretty;
+}
