@@ -72,7 +72,7 @@ export const CUSTOMER_STEPS = [
   {
     step: "03",
     title: "Accept, track, and pay",
-    body: "Accept the quote you want, follow the job to completion, then pay by card or mobile money. Rate the work afterwards.",
+    body: "Accept the quote you want and follow the job. You pay by card or mobile money only once the work is marked done, then rate it.",
   },
 ] as const;
 
@@ -94,7 +94,7 @@ export const TRADESPERSON_POINTS = [
   },
   {
     title: "Get paid without chasing",
-    body: "Invoice from the job, take card and mobile money through Paystack, or record a cash payment yourself.",
+    body: "Invoice from the job. When the customer pays, your share goes straight to your mobile money or bank account. Callout never holds it.",
     icon: "wallet",
   },
 ] as const;
@@ -102,7 +102,7 @@ export const TRADESPERSON_POINTS = [
 export const TRUST_POINTS = [
   {
     title: "Verified tradespeople",
-    body: "Profiles are reviewed before they can take work. Verification status is visible on every listing.",
+    body: "Every tradesperson's Ghana Card and trade certificate are checked before they can take work. Only verified people are listed.",
     icon: "shield-check",
   },
   {
@@ -133,7 +133,7 @@ export const FAQ = [
   },
   {
     q: "How do I know a tradesperson is real?",
-    a: "Every profile is reviewed before it can take work, and verification status is shown on the listing. Ratings can only be left by the customer on a completed job.",
+    a: "Before anyone can take work, we check their Ghana Card and their certificate for the trade. Only verified tradespeople appear in search. Ratings can only be left by the customer on a completed job.",
   },
   {
     q: "Which trades and areas are covered?",
@@ -141,10 +141,14 @@ export const FAQ = [
   },
   {
     q: "What does it cost a tradesperson?",
-    a: "Taking work is free. A Pro subscription adds the right to propose changes to the catalogue and carries double weight in guild votes.",
+    a: "Joining and quoting are free. When a customer pays, Callout takes a fee from your share. The fee is set per trade and shown in the app before you quote; the customer pays the agreed price, nothing extra. Pro is an optional 30-day pass, never renewed automatically, that lets you propose price changes and doubles your guild vote.",
   },
   {
     q: "How do I pay?",
-    a: "Card or mobile money through Paystack when the job is done. If you settle in cash, the tradesperson records it against the invoice.",
+    a: "Card or mobile money through Paystack, once the tradesperson marks the job done. If you settle in cash, the tradesperson records it against the invoice.",
+  },
+  {
+    q: "What if the work wasn't right?",
+    a: "Report a problem from the invoice within 14 days of paying. The tradesperson gives their side, and Callout decides, including a full or partial refund to the card or mobile money account you paid with.",
   },
 ] as const;
